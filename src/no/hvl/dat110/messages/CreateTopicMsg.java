@@ -18,4 +18,16 @@ public class CreateTopicMsg extends Message {
     }
 
 
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nThe following topic has been created: " + topic;
+    }
 }
