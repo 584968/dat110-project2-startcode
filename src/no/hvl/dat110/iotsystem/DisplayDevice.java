@@ -5,6 +5,8 @@ import no.hvl.dat110.messages.Message;
 import no.hvl.dat110.messages.PublishMsg;
 import no.hvl.dat110.common.TODO;
 
+import static java.lang.Thread.sleep;
+
 public class DisplayDevice {
 	
 	private static final int COUNT = 10;
@@ -23,12 +25,26 @@ public class DisplayDevice {
 		// - receive messages on the topic
 		// - unsubscribe from the topic
 		// - disconnect from the broker
-		
+
+		Client client = new Client("DispSevice", Common.BROKERHOST, Common.BROKERPORT);
+		client.connect();
+		client.createTopic(Common.TEMPTOPIC);
+		client.subscribe(Common.TEMPTOPIC);
+		for (int i = 0; i < COUNT; i++){
+			client.receive();
+
+			try {
+				sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		client.unsubscribe(Common.TEMPTOPIC);
+		client.disconnect();
+
 		// TODO - END
 		
 		System.out.println("Display stopping ... ");
-		
-		throw new UnsupportedOperationException(TODO.method());
 		
 	}
 }
