@@ -26,7 +26,7 @@ public class DisplayDevice {
 		// - unsubscribe from the topic
 		// - disconnect from the broker
 
-		Client client = new Client("DispSevice", Common.BROKERHOST, Common.BROKERPORT);
+		Client client = new Client("DisplayDevice", Common.BROKERHOST, Common.BROKERPORT);
 		client.connect();
 		client.createTopic(Common.TEMPTOPIC);
 		client.subscribe(Common.TEMPTOPIC);

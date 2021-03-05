@@ -22,7 +22,7 @@ public class TemperatureDevice {
 		// - publish the temperature(s)
 		// - disconnect from the broker
 
-		Client client = new Client("TempDevice", Common.BROKERHOST, Common.BROKERPORT);
+		Client client = new Client("TemperatureDevice", Common.BROKERHOST, Common.BROKERPORT);
 		client.connect();
 
 		for (int i = 0; i < COUNT; i++){
